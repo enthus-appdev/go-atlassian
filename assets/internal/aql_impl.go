@@ -3,13 +3,14 @@ package internal
 import (
 	"context"
 	"fmt"
-	model "github.com/ctreminiom/go-atlassian/pkg/infra/models"
-	"github.com/ctreminiom/go-atlassian/service"
-	"github.com/ctreminiom/go-atlassian/service/assets"
 	"net/http"
 	"net/url"
 	"strconv"
 	"strings"
+
+	model "github.com/enthus-appdev/go-atlassian/pkg/infra/models"
+	"github.com/enthus-appdev/go-atlassian/service"
+	"github.com/enthus-appdev/go-atlassian/service/assets"
 )
 
 // NewAQLService creates a new instance of AQLService.

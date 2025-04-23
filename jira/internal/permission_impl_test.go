@@ -4,12 +4,13 @@ import (
 	"bytes"
 	"context"
 	"errors"
-	model "github.com/ctreminiom/go-atlassian/pkg/infra/models"
-	"github.com/ctreminiom/go-atlassian/service"
-	"github.com/ctreminiom/go-atlassian/service/mocks"
-	"github.com/stretchr/testify/assert"
 	"net/http"
 	"testing"
+
+	model "github.com/enthus-appdev/go-atlassian/pkg/infra/models"
+	"github.com/enthus-appdev/go-atlassian/service"
+	"github.com/enthus-appdev/go-atlassian/service/mocks"
+	"github.com/stretchr/testify/assert"
 )
 
 func Test_internalPermissionImpl_Gets(t *testing.T) {

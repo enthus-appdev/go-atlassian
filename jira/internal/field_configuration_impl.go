@@ -3,12 +3,13 @@ package internal
 import (
 	"context"
 	"fmt"
-	model "github.com/ctreminiom/go-atlassian/pkg/infra/models"
-	"github.com/ctreminiom/go-atlassian/service"
-	"github.com/ctreminiom/go-atlassian/service/jira"
 	"net/http"
 	"net/url"
 	"strconv"
+
+	model "github.com/enthus-appdev/go-atlassian/pkg/infra/models"
+	"github.com/enthus-appdev/go-atlassian/service"
+	"github.com/enthus-appdev/go-atlassian/service/jira"
 )
 
 // NewIssueFieldConfigurationService creates a new instance of IssueFieldConfigService.

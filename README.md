@@ -1,21 +1,21 @@
 
-<p align="center"><img src="https://github.com/ctreminiom/go-atlassian/assets/16035390/f73c7a54-ff48-454a-9821-f3d391ccd9d8"></p>
+<p align="center"><img src="https://github.com/enthus-appdev/go-atlassian/assets/16035390/f73c7a54-ff48-454a-9821-f3d391ccd9d8"></p>
 
-[![Releases](https://img.shields.io/github/v/release/ctreminiom/go-atlassian)](https://github.com/ctreminiom/go-atlassian/releases/latest)
-[![Testing](https://github.com/ctreminiom/go-atlassian/actions/workflows/test.yml/badge.svg)](https://github.com/ctreminiom/go-atlassian/actions/workflows/test.yml)
+[![Releases](https://img.shields.io/github/v/release/ctreminiom/go-atlassian)](https://github.com/enthus-appdev/go-atlassian/releases/latest)
+[![Testing](https://github.com/enthus-appdev/go-atlassian/actions/workflows/test.yml/badge.svg)](https://github.com/enthus-appdev/go-atlassian/actions/workflows/test.yml)
 [![codecov](https://codecov.io/gh/ctreminiom/go-atlassian/branch/main/graph/badge.svg?token=G0KPNMTIRV)](https://codecov.io/gh/ctreminiom/go-atlassian)
-[![Go Reference](https://pkg.go.dev/badge/github.com/ctreminiom/go-atlassian.svg)](https://pkg.go.dev/github.com/ctreminiom/go-atlassian)
-[![Go Report Card](https://goreportcard.com/badge/ctreminiom/go-atlassian)](https://goreportcard.com/report/github.com/ctreminiom/go-atlassian)
+[![Go Reference](https://pkg.go.dev/badge/github.com/enthus-appdev/go-atlassian.svg)](https://pkg.go.dev/github.com/enthus-appdev/go-atlassian)
+[![Go Report Card](https://goreportcard.com/badge/ctreminiom/go-atlassian)](https://goreportcard.com/report/github.com/enthus-appdev/go-atlassian)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fctreminiom%2Fgo-atlassian.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fctreminiom%2Fgo-atlassian?ref=badge_shield)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/fe5c1b3c9fd64f84989ae51c42803456)](https://app.codacy.com/gh/ctreminiom/go-atlassian/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 ![GitHub](https://img.shields.io/github/license/ctreminiom/go-atlassian)
 [![Mentioned in Awesome Go-Atlassian](https://awesome.re/mentioned-badge-flat.svg)](https://github.com/avelino/awesome-go#third-party-apis)
 [![OpenSSF Best Practices](https://bestpractices.coreinfrastructure.org/projects/4861/badge)](https://bestpractices.coreinfrastructure.org/projects/4861)
-[![OpenSSF Best Practices](https://img.shields.io/ossf-scorecard/github.com/ctreminiom/go-atlassian?label=openssf%20scorecard&style=flat)](https://img.shields.io/ossf-scorecard/github.com/ctreminiom/go-atlassian?label=openssf%20scorecard&style=flat)
+[![OpenSSF Best Practices](https://img.shields.io/ossf-scorecard/github.com/enthus-appdev/go-atlassian?label=openssf%20scorecard&style=flat)](https://img.shields.io/ossf-scorecard/github.com/enthus-appdev/go-atlassian?label=openssf%20scorecard&style=flat)
 [![Documentation](https://img.shields.io/badge/%F0%9F%92%A1%20go-documentation-00ACD7.svg?style=flat)](https://docs.go-atlassian.io/)
-[![Sourcegraph](https://sourcegraph.com/github.com/ctreminiom/go-atlassian/-/badge.svg)](https://sourcegraph.com/github.com/ctreminiom/go-atlassian?badge)
-[![Dependency Review](https://github.com/ctreminiom/go-atlassian/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/ctreminiom/go-atlassian/actions/workflows/dependency-review.yml)
-[![Analysis](https://github.com/ctreminiom/go-atlassian/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/ctreminiom/go-atlassian/actions/workflows/codeql-analysis.yml)
+[![Sourcegraph](https://sourcegraph.com/github.com/enthus-appdev/go-atlassian/-/badge.svg)](https://sourcegraph.com/github.com/enthus-appdev/go-atlassian?badge)
+[![Dependency Review](https://github.com/enthus-appdev/go-atlassian/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/enthus-appdev/go-atlassian/actions/workflows/dependency-review.yml)
+[![Analysis](https://github.com/enthus-appdev/go-atlassian/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/enthus-appdev/go-atlassian/actions/workflows/codeql-analysis.yml)
 
 **go-atlassian** is a Go library that provides a simple and convenient way to interact with various Atlassian products' REST APIs. [Atlassian](https://developer.atlassian.com/cloud/) is a leading provider of software and tools for software development, 
 project management, and collaboration. Some of the products that **go-atlassian** supports include Jira, Confluence, Jira Service Management, and more.
@@ -41,7 +41,7 @@ If you do not have [Go](https://golang.org/) installed yet, you can find install
 To pull the most recent version of **go-atlassian**, use `go get`.
 
 ```
-go get github.com/ctreminiom/go-atlassian
+go get github.com/enthus-appdev/go-atlassian
 ```
 
 -------------------------
@@ -50,15 +50,15 @@ Then import the package into your project as you normally would. You can import 
 
 | Module                  	       | Path                                               	     | URL's                                                                                	|
 |---------------------------------|----------------------------------------------------------|--------------------------------------------------------------------------------------	|
-| Jira v2                 	       | `github.com/ctreminiom/go-atlassian/jira/v2`       	     | [Getting Started](https://docs.go-atlassian.io/jira-software-cloud/introduction)     	|
-| Jira v3                 	       | `github.com/ctreminiom/go-atlassian/jira/v3`       	     | [Getting Started](https://docs.go-atlassian.io/jira-software-cloud/introduction)     	|
-| Jira Software Agile     	       | `github.com/ctreminiom/go-atlassian/jira/agile`    	     | [Getting Started](https://docs.go-atlassian.io/jira-agile/introduction)              	|
-| Jira Service Management 	       | `github.com/ctreminiom/go-atlassian/jira/sm`       	     | [Getting Started](https://docs.go-atlassian.io/jira-service-management/introduction) 	|
-| Jira Assets             	       | `github.com/ctreminiom/go-atlassian/assets`        	     | [Getting Started](https://docs.go-atlassian.io/jira-assets/overview)                 	|
-| Confluence              	       | `github.com/ctreminiom/go-atlassian/confluence`    	     | [Getting Started](https://docs.go-atlassian.io/confluence-cloud/introduction)        	|
-| Confluence v2           	       | `github.com/ctreminiom/go-atlassian/confluence/v2` 	     | [Getting Started](https://docs.go-atlassian.io/confluence-cloud/v2/introduction)     	|
-| Admin Cloud             	       | `github.com/ctreminiom/go-atlassian/admin`         	     | [Getting Started](https://docs.go-atlassian.io/atlassian-admin-cloud/overview)       	|
-| Bitbucket Cloud *(In Progress)*<br/> | `github.com/ctreminiom/go-atlassian/bitbucket`         	 | [Getting Started](https://docs.go-atlassian.io/bitbucket-cloud/introduction)       	|
+| Jira v2                 	       | `github.com/enthus-appdev/go-atlassian/jira/v2`       	     | [Getting Started](https://docs.go-atlassian.io/jira-software-cloud/introduction)     	|
+| Jira v3                 	       | `github.com/enthus-appdev/go-atlassian/jira/v3`       	     | [Getting Started](https://docs.go-atlassian.io/jira-software-cloud/introduction)     	|
+| Jira Software Agile     	       | `github.com/enthus-appdev/go-atlassian/jira/agile`    	     | [Getting Started](https://docs.go-atlassian.io/jira-agile/introduction)              	|
+| Jira Service Management 	       | `github.com/enthus-appdev/go-atlassian/jira/sm`       	     | [Getting Started](https://docs.go-atlassian.io/jira-service-management/introduction) 	|
+| Jira Assets             	       | `github.com/enthus-appdev/go-atlassian/assets`        	     | [Getting Started](https://docs.go-atlassian.io/jira-assets/overview)                 	|
+| Confluence              	       | `github.com/enthus-appdev/go-atlassian/confluence`    	     | [Getting Started](https://docs.go-atlassian.io/confluence-cloud/introduction)        	|
+| Confluence v2           	       | `github.com/enthus-appdev/go-atlassian/confluence/v2` 	     | [Getting Started](https://docs.go-atlassian.io/confluence-cloud/v2/introduction)     	|
+| Admin Cloud             	       | `github.com/enthus-appdev/go-atlassian/admin`         	     | [Getting Started](https://docs.go-atlassian.io/atlassian-admin-cloud/overview)       	|
+| Bitbucket Cloud *(In Progress)*<br/> | `github.com/enthus-appdev/go-atlassian/bitbucket`         	 | [Getting Started](https://docs.go-atlassian.io/bitbucket-cloud/introduction)       	|
 
 -------------------------
 ## 🔨 Usage

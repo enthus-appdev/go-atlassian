@@ -38,7 +38,7 @@ package main
 
 import (
 	"context"
-	"github.com/ctreminiom/go-atlassian/jira"
+	"github.com/enthus-appdev/go-atlassian/jira"
 	"log"
 	"os"
 )

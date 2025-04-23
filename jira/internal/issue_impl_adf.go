@@ -9,9 +9,9 @@ import (
 
 	"dario.cat/mergo"
 
-	model "github.com/ctreminiom/go-atlassian/pkg/infra/models"
-	"github.com/ctreminiom/go-atlassian/service"
-	"github.com/ctreminiom/go-atlassian/service/jira"
+	model "github.com/enthus-appdev/go-atlassian/pkg/infra/models"
+	"github.com/enthus-appdev/go-atlassian/service"
+	"github.com/enthus-appdev/go-atlassian/service/jira"
 )
 
 // IssueADFService provides methods to manage issues in Jira Service Management using the ADF format.

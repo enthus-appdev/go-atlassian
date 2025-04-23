@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"net/http"
 
-	model "github.com/ctreminiom/go-atlassian/pkg/infra/models"
-	"github.com/ctreminiom/go-atlassian/service"
-	"github.com/ctreminiom/go-atlassian/service/agile"
+	model "github.com/enthus-appdev/go-atlassian/pkg/infra/models"
+	"github.com/enthus-appdev/go-atlassian/service"
+	"github.com/enthus-appdev/go-atlassian/service/agile"
 )
 
 // NewBoardBacklogService creates a new instance of BoardBacklogService.

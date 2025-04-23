@@ -1,6 +1,6 @@
 
 <a name="v1.4.2"></a>
-## [v1.4.2](https://github.com/ctreminiom/go-atlassian/compare/v1.3.1...v1.4.2)
+## [v1.4.2](https://github.com/enthus-appdev/go-atlassian/compare/v1.3.1...v1.4.2)
 
 > 2022-01-07
 
@@ -24,31 +24,31 @@
 
 ### Pull Requests
 
-* Merge pull request [#95](https://github.com/ctreminiom/go-atlassian/issues/95) from ctreminiom/dev-1
-* Merge pull request [#93](https://github.com/ctreminiom/go-atlassian/issues/93) from ctreminiom/dependabot/go_modules/github.com/tidwall/gjson-1.12.1
-* Merge pull request [#94](https://github.com/ctreminiom/go-atlassian/issues/94) from ctreminiom/feature/field-screen-tab-move
+* Merge pull request [#95](https://github.com/enthus-appdev/go-atlassian/issues/95) from ctreminiom/dev-1
+* Merge pull request [#93](https://github.com/enthus-appdev/go-atlassian/issues/93) from ctreminiom/dependabot/go_modules/github.com/tidwall/gjson-1.12.1
+* Merge pull request [#94](https://github.com/enthus-appdev/go-atlassian/issues/94) from ctreminiom/feature/field-screen-tab-move
 
 
 <a name="v1.3.1"></a>
-## [v1.3.1](https://github.com/ctreminiom/go-atlassian/compare/v1.4.0...v1.3.1)
+## [v1.3.1](https://github.com/enthus-appdev/go-atlassian/compare/v1.4.0...v1.3.1)
 
 > 2021-11-28
 
 
 <a name="v1.4.0"></a>
-## [v1.4.0](https://github.com/ctreminiom/go-atlassian/compare/v1.4.1...v1.4.0)
+## [v1.4.0](https://github.com/enthus-appdev/go-atlassian/compare/v1.4.1...v1.4.0)
 
 > 2021-11-28
 
 
 <a name="v1.4.1"></a>
-## [v1.4.1](https://github.com/ctreminiom/go-atlassian/compare/v2.0.0...v1.4.1)
+## [v1.4.1](https://github.com/enthus-appdev/go-atlassian/compare/v2.0.0...v1.4.1)
 
 > 2021-11-28
 
 
 <a name="v2.0.0"></a>
-## [v2.0.0](https://github.com/ctreminiom/go-atlassian/compare/v1.3.0...v2.0.0)
+## [v2.0.0](https://github.com/enthus-appdev/go-atlassian/compare/v1.3.0...v2.0.0)
 
 > 2021-11-28
 
@@ -135,7 +135,7 @@
 * Added the WorkflowService under the Jira module
 * Added the Content Property Confluence module under the contentService.
 * Added the ContentLabelService
-* Added the SchemesByProject method under the issueTypeScreenScheme.go sub-module, closes [#58](https://github.com/ctreminiom/go-atlassian/issues/58)
+* Added the SchemesByProject method under the issueTypeScreenScheme.go sub-module, closes [#58](https://github.com/enthus-appdev/go-atlassian/issues/58)
 
 ### :white_check_mark: Ad/Update Test Cases
 
@@ -155,40 +155,40 @@
 
 ### Pull Requests
 
-* Merge pull request [#91](https://github.com/ctreminiom/go-atlassian/issues/91) from ctreminiom/feature/documentation
-* Merge pull request [#90](https://github.com/ctreminiom/go-atlassian/issues/90) from ctreminiom/bug/issue-link-v2
-* Merge pull request [#89](https://github.com/ctreminiom/go-atlassian/issues/89) from ctreminiom/bug/issue-link-v2
-* Merge pull request [#88](https://github.com/ctreminiom/go-atlassian/issues/88) from ctreminiom/bug/jira-dashboard
-* Merge pull request [#87](https://github.com/ctreminiom/go-atlassian/issues/87) from ctreminiom/dependabot/go_modules/github.com/tidwall/gjson-1.12.0
-* Merge pull request [#86](https://github.com/ctreminiom/go-atlassian/issues/86) from ctreminiom/feature/struct-refactor
-* Merge pull request [#85](https://github.com/ctreminiom/go-atlassian/issues/85) from ctreminiom/feature/custom-fields-get
-* Merge pull request [#84](https://github.com/ctreminiom/go-atlassian/issues/84) from ctreminiom/feature/admin-refactor
-* Merge pull request [#83](https://github.com/ctreminiom/go-atlassian/issues/83) from ctreminiom/feature/confluence-models
-* Merge pull request [#82](https://github.com/ctreminiom/go-atlassian/issues/82) from ctreminiom/feature/sm-models-migration
-* Merge pull request [#81](https://github.com/ctreminiom/go-atlassian/issues/81) from ctreminiom/feature/jira-fields-mapping
-* Merge pull request [#80](https://github.com/ctreminiom/go-atlassian/issues/80) from ctreminiom/feature/agile-epics
-* Merge pull request [#79](https://github.com/ctreminiom/go-atlassian/issues/79) from ctreminiom/feature/workflow-scheme
-* Merge pull request [#78](https://github.com/ctreminiom/go-atlassian/issues/78) from ctreminiom/feature/jira-workflow
-* Merge pull request [#77](https://github.com/ctreminiom/go-atlassian/issues/77) from ctreminiom/feature/agile-refactor
-* Merge pull request [#76](https://github.com/ctreminiom/go-atlassian/issues/76) from ctreminiom/feature/search-issues-v2
-* Merge pull request [#75](https://github.com/ctreminiom/go-atlassian/issues/75) from ctreminiom/feature/get-all-boards
-* Merge pull request [#74](https://github.com/ctreminiom/go-atlassian/issues/74) from ctreminiom/feature/project-versions
-* Merge pull request [#73](https://github.com/ctreminiom/go-atlassian/issues/73) from ctreminiom/feature/v2-get-all-projects
-* Merge pull request [#71](https://github.com/ctreminiom/go-atlassian/issues/71) from ctreminiom/dependabot/go_modules/github.com/tidwall/gjson-1.11.0
-* Merge pull request [#72](https://github.com/ctreminiom/go-atlassian/issues/72) from ctreminiom/feature/version-segmentation
-* Merge pull request [#70](https://github.com/ctreminiom/go-atlassian/issues/70) from ctreminiom/feature/delete-with-sub-tasks
-* Merge pull request [#67](https://github.com/ctreminiom/go-atlassian/issues/67) from ctreminiom/dependabot/go_modules/github.com/tidwall/gjson-1.10.2
-* Merge pull request [#66](https://github.com/ctreminiom/go-atlassian/issues/66) from ctreminiom/feature/62
-* Merge pull request [#65](https://github.com/ctreminiom/go-atlassian/issues/65) from ctreminiom/feature/64
-* Merge pull request [#63](https://github.com/ctreminiom/go-atlassian/issues/63) from ctreminiom/feature/18
-* Merge pull request [#61](https://github.com/ctreminiom/go-atlassian/issues/61) from ctreminiom/feature/board-delete
-* Merge pull request [#60](https://github.com/ctreminiom/go-atlassian/issues/60) from ctreminiom/dev
-* Merge pull request [#59](https://github.com/ctreminiom/go-atlassian/issues/59) from ctreminiom/dev
-* Merge pull request [#57](https://github.com/ctreminiom/go-atlassian/issues/57) from ctreminiom/dependabot/go_modules/github.com/imdario/mergo-0.3.12
+* Merge pull request [#91](https://github.com/enthus-appdev/go-atlassian/issues/91) from ctreminiom/feature/documentation
+* Merge pull request [#90](https://github.com/enthus-appdev/go-atlassian/issues/90) from ctreminiom/bug/issue-link-v2
+* Merge pull request [#89](https://github.com/enthus-appdev/go-atlassian/issues/89) from ctreminiom/bug/issue-link-v2
+* Merge pull request [#88](https://github.com/enthus-appdev/go-atlassian/issues/88) from ctreminiom/bug/jira-dashboard
+* Merge pull request [#87](https://github.com/enthus-appdev/go-atlassian/issues/87) from ctreminiom/dependabot/go_modules/github.com/tidwall/gjson-1.12.0
+* Merge pull request [#86](https://github.com/enthus-appdev/go-atlassian/issues/86) from ctreminiom/feature/struct-refactor
+* Merge pull request [#85](https://github.com/enthus-appdev/go-atlassian/issues/85) from ctreminiom/feature/custom-fields-get
+* Merge pull request [#84](https://github.com/enthus-appdev/go-atlassian/issues/84) from ctreminiom/feature/admin-refactor
+* Merge pull request [#83](https://github.com/enthus-appdev/go-atlassian/issues/83) from ctreminiom/feature/confluence-models
+* Merge pull request [#82](https://github.com/enthus-appdev/go-atlassian/issues/82) from ctreminiom/feature/sm-models-migration
+* Merge pull request [#81](https://github.com/enthus-appdev/go-atlassian/issues/81) from ctreminiom/feature/jira-fields-mapping
+* Merge pull request [#80](https://github.com/enthus-appdev/go-atlassian/issues/80) from ctreminiom/feature/agile-epics
+* Merge pull request [#79](https://github.com/enthus-appdev/go-atlassian/issues/79) from ctreminiom/feature/workflow-scheme
+* Merge pull request [#78](https://github.com/enthus-appdev/go-atlassian/issues/78) from ctreminiom/feature/jira-workflow
+* Merge pull request [#77](https://github.com/enthus-appdev/go-atlassian/issues/77) from ctreminiom/feature/agile-refactor
+* Merge pull request [#76](https://github.com/enthus-appdev/go-atlassian/issues/76) from ctreminiom/feature/search-issues-v2
+* Merge pull request [#75](https://github.com/enthus-appdev/go-atlassian/issues/75) from ctreminiom/feature/get-all-boards
+* Merge pull request [#74](https://github.com/enthus-appdev/go-atlassian/issues/74) from ctreminiom/feature/project-versions
+* Merge pull request [#73](https://github.com/enthus-appdev/go-atlassian/issues/73) from ctreminiom/feature/v2-get-all-projects
+* Merge pull request [#71](https://github.com/enthus-appdev/go-atlassian/issues/71) from ctreminiom/dependabot/go_modules/github.com/tidwall/gjson-1.11.0
+* Merge pull request [#72](https://github.com/enthus-appdev/go-atlassian/issues/72) from ctreminiom/feature/version-segmentation
+* Merge pull request [#70](https://github.com/enthus-appdev/go-atlassian/issues/70) from ctreminiom/feature/delete-with-sub-tasks
+* Merge pull request [#67](https://github.com/enthus-appdev/go-atlassian/issues/67) from ctreminiom/dependabot/go_modules/github.com/tidwall/gjson-1.10.2
+* Merge pull request [#66](https://github.com/enthus-appdev/go-atlassian/issues/66) from ctreminiom/feature/62
+* Merge pull request [#65](https://github.com/enthus-appdev/go-atlassian/issues/65) from ctreminiom/feature/64
+* Merge pull request [#63](https://github.com/enthus-appdev/go-atlassian/issues/63) from ctreminiom/feature/18
+* Merge pull request [#61](https://github.com/enthus-appdev/go-atlassian/issues/61) from ctreminiom/feature/board-delete
+* Merge pull request [#60](https://github.com/enthus-appdev/go-atlassian/issues/60) from ctreminiom/dev
+* Merge pull request [#59](https://github.com/enthus-appdev/go-atlassian/issues/59) from ctreminiom/dev
+* Merge pull request [#57](https://github.com/enthus-appdev/go-atlassian/issues/57) from ctreminiom/dependabot/go_modules/github.com/imdario/mergo-0.3.12
 
 
 <a name="v1.3.0"></a>
-## [v1.3.0](https://github.com/ctreminiom/go-atlassian/compare/v1.2.0...v1.3.0)
+## [v1.3.0](https://github.com/enthus-appdev/go-atlassian/compare/v1.2.0...v1.3.0)
 
 > 2021-07-17
 
@@ -197,7 +197,7 @@
 * Removed the Zero validation
 * Enable default scheme
 * Removed the omitempty struct tag on the CustomFieldContextOptionScheme to enable the ability to enable pass the false value.
-* Fixed [#43](https://github.com/ctreminiom/go-atlassian/issues/43)
+* Fixed [#43](https://github.com/enthus-appdev/go-atlassian/issues/43)
 
 ### :memo: Add or update documentation.
 
@@ -238,8 +238,8 @@
 * Added the content.Search
 * content.Create method added
 * Added Confluence service
-* added the MySelf endpoint, close [#26](https://github.com/ctreminiom/go-atlassian/issues/26)
-* Closes [#46](https://github.com/ctreminiom/go-atlassian/issues/46)
+* added the MySelf endpoint, close [#26](https://github.com/enthus-appdev/go-atlassian/issues/26)
+* Closes [#46](https://github.com/enthus-appdev/go-atlassian/issues/46)
 
 ### :white_check_mark: Ad/Update Test Cases
 
@@ -248,17 +248,17 @@
 
 ### Pull Requests
 
-* Merge pull request [#56](https://github.com/ctreminiom/go-atlassian/issues/56) from ctreminiom/dev
-* Merge pull request [#49](https://github.com/ctreminiom/go-atlassian/issues/49) from ctreminiom/feature/confluence-cloud
-* Merge pull request [#36](https://github.com/ctreminiom/go-atlassian/issues/36) from ctreminiom/dependabot/go_modules/github.com/stretchr/testify-1.7.0
-* Merge pull request [#48](https://github.com/ctreminiom/go-atlassian/issues/48) from ctreminiom/dev
-* Merge pull request [#47](https://github.com/ctreminiom/go-atlassian/issues/47) from ctreminiom/dev
-* Merge pull request [#45](https://github.com/ctreminiom/go-atlassian/issues/45) from ctreminiom/dev
-* Merge pull request [#44](https://github.com/ctreminiom/go-atlassian/issues/44) from ctreminiom/dev
+* Merge pull request [#56](https://github.com/enthus-appdev/go-atlassian/issues/56) from ctreminiom/dev
+* Merge pull request [#49](https://github.com/enthus-appdev/go-atlassian/issues/49) from ctreminiom/feature/confluence-cloud
+* Merge pull request [#36](https://github.com/enthus-appdev/go-atlassian/issues/36) from ctreminiom/dependabot/go_modules/github.com/stretchr/testify-1.7.0
+* Merge pull request [#48](https://github.com/enthus-appdev/go-atlassian/issues/48) from ctreminiom/dev
+* Merge pull request [#47](https://github.com/enthus-appdev/go-atlassian/issues/47) from ctreminiom/dev
+* Merge pull request [#45](https://github.com/enthus-appdev/go-atlassian/issues/45) from ctreminiom/dev
+* Merge pull request [#44](https://github.com/enthus-appdev/go-atlassian/issues/44) from ctreminiom/dev
 
 
 <a name="v1.2.0"></a>
-## [v1.2.0](https://github.com/ctreminiom/go-atlassian/compare/v1.1.5...v1.2.0)
+## [v1.2.0](https://github.com/enthus-appdev/go-atlassian/compare/v1.1.5...v1.2.0)
 
 > 2021-05-11
 
@@ -270,8 +270,8 @@
 
 * Fixed the error: SA4006: this value of `err` is never used (staticcheck)
 * Fixed the Lint error: structtag: struct field Description repeats json tag "status" also at issue.go:58 (govet)
-* Closes [#19](https://github.com/ctreminiom/go-atlassian/issues/19)
-* Closes [#9](https://github.com/ctreminiom/go-atlassian/issues/9)
+* Closes [#19](https://github.com/enthus-appdev/go-atlassian/issues/19)
+* Closes [#9](https://github.com/enthus-appdev/go-atlassian/issues/9)
 
 ### :memo: Add or update documentation.
 
@@ -284,11 +284,11 @@
 * Added the Check method under the permission.go service
 * Added the ProjectContext method under the issueFieldContext.go service.
 * Added the IssueTypesContext method under the issueFieldContext.go service.
-* closes [#40](https://github.com/ctreminiom/go-atlassian/issues/40)
-* closes [#38](https://github.com/ctreminiom/go-atlassian/issues/38), closes [#39](https://github.com/ctreminiom/go-atlassian/issues/39)
+* closes [#40](https://github.com/enthus-appdev/go-atlassian/issues/40)
+* closes [#38](https://github.com/enthus-appdev/go-atlassian/issues/38), closes [#39](https://github.com/enthus-appdev/go-atlassian/issues/39)
 * Added the SprintService under the Agile Module
 * Added the first Jira Cloud Agile Integration
-* Enable the ability to Assign Field Configuration Scheme to a Jira Project, closes [#20](https://github.com/ctreminiom/go-atlassian/issues/20)
+* Enable the ability to Assign Field Configuration Scheme to a Jira Project, closes [#20](https://github.com/enthus-appdev/go-atlassian/issues/20)
 
 ### :white_check_mark: Ad/Update Test Cases
 
@@ -297,14 +297,14 @@
 
 ### Pull Requests
 
-* Merge pull request [#42](https://github.com/ctreminiom/go-atlassian/issues/42) from ctreminiom/dev
-* Merge pull request [#37](https://github.com/ctreminiom/go-atlassian/issues/37) from ctreminiom/dependabot/add-v2-config-file
-* Merge pull request [#41](https://github.com/ctreminiom/go-atlassian/issues/41) from ctreminiom/feature/jira-agile
-* Merge pull request [#31](https://github.com/ctreminiom/go-atlassian/issues/31) from ctreminiom/dev
+* Merge pull request [#42](https://github.com/enthus-appdev/go-atlassian/issues/42) from ctreminiom/dev
+* Merge pull request [#37](https://github.com/enthus-appdev/go-atlassian/issues/37) from ctreminiom/dependabot/add-v2-config-file
+* Merge pull request [#41](https://github.com/enthus-appdev/go-atlassian/issues/41) from ctreminiom/feature/jira-agile
+* Merge pull request [#31](https://github.com/enthus-appdev/go-atlassian/issues/31) from ctreminiom/dev
 
 
 <a name="v1.1.5"></a>
-## [v1.1.5](https://github.com/ctreminiom/go-atlassian/compare/v1.1.4...v1.1.5)
+## [v1.1.5](https://github.com/enthus-appdev/go-atlassian/compare/v1.1.4...v1.1.5)
 
 > 2021-04-23
 
@@ -375,14 +375,14 @@
 
 ### Pull Requests
 
-* Merge pull request [#29](https://github.com/ctreminiom/go-atlassian/issues/29) from ctreminiom/dev
-* Merge pull request [#28](https://github.com/ctreminiom/go-atlassian/issues/28) from fossabot/add-license-scan-badge
-* Merge pull request [#27](https://github.com/ctreminiom/go-atlassian/issues/27) from ctreminiom/dev
-* Merge pull request [#22](https://github.com/ctreminiom/go-atlassian/issues/22) from ctreminiom/dev
+* Merge pull request [#29](https://github.com/enthus-appdev/go-atlassian/issues/29) from ctreminiom/dev
+* Merge pull request [#28](https://github.com/enthus-appdev/go-atlassian/issues/28) from fossabot/add-license-scan-badge
+* Merge pull request [#27](https://github.com/enthus-appdev/go-atlassian/issues/27) from ctreminiom/dev
+* Merge pull request [#22](https://github.com/enthus-appdev/go-atlassian/issues/22) from ctreminiom/dev
 
 
 <a name="v1.1.4"></a>
-## [v1.1.4](https://github.com/ctreminiom/go-atlassian/compare/v1.1.3...v1.1.4)
+## [v1.1.4](https://github.com/enthus-appdev/go-atlassian/compare/v1.1.3...v1.1.4)
 
 > 2021-04-07
 
@@ -407,11 +407,11 @@
 
 ### Pull Requests
 
-* Merge pull request [#17](https://github.com/ctreminiom/go-atlassian/issues/17) from ctreminiom/dev
+* Merge pull request [#17](https://github.com/enthus-appdev/go-atlassian/issues/17) from ctreminiom/dev
 
 
 <a name="v1.1.3"></a>
-## [v1.1.3](https://github.com/ctreminiom/go-atlassian/compare/v1.1.2...v1.1.3)
+## [v1.1.3](https://github.com/enthus-appdev/go-atlassian/compare/v1.1.2...v1.1.3)
 
 > 2021-04-07
 
@@ -438,13 +438,13 @@
 
 ### Pull Requests
 
-* Merge pull request [#16](https://github.com/ctreminiom/go-atlassian/issues/16) from ctreminiom/feature/cloud-admin
-* Merge pull request [#15](https://github.com/ctreminiom/go-atlassian/issues/15) from ctreminiom/dev
-* Merge pull request [#13](https://github.com/ctreminiom/go-atlassian/issues/13) from ctreminiom/dev
+* Merge pull request [#16](https://github.com/enthus-appdev/go-atlassian/issues/16) from ctreminiom/feature/cloud-admin
+* Merge pull request [#15](https://github.com/enthus-appdev/go-atlassian/issues/15) from ctreminiom/dev
+* Merge pull request [#13](https://github.com/enthus-appdev/go-atlassian/issues/13) from ctreminiom/dev
 
 
 <a name="v1.1.2"></a>
-## [v1.1.2](https://github.com/ctreminiom/go-atlassian/compare/v1.1.1...v1.1.2)
+## [v1.1.2](https://github.com/enthus-appdev/go-atlassian/compare/v1.1.1...v1.1.2)
 
 > 2021-03-24
 
@@ -454,11 +454,11 @@
 
 ### Pull Requests
 
-* Merge pull request [#11](https://github.com/ctreminiom/go-atlassian/issues/11) from ctreminiom/feature/jira-software-example
+* Merge pull request [#11](https://github.com/enthus-appdev/go-atlassian/issues/11) from ctreminiom/feature/jira-software-example
 
 
 <a name="v1.1.1"></a>
-## [v1.1.1](https://github.com/ctreminiom/go-atlassian/compare/v1.1.0...v1.1.1)
+## [v1.1.1](https://github.com/enthus-appdev/go-atlassian/compare/v1.1.0...v1.1.1)
 
 > 2021-03-24
 
@@ -475,12 +475,12 @@
 
 ### Pull Requests
 
-* Merge pull request [#8](https://github.com/ctreminiom/go-atlassian/issues/8) from ctreminiom/feature-adf-comments
-* Merge pull request [#6](https://github.com/ctreminiom/go-atlassian/issues/6) from ctreminiom/feat/updated-readme.md
+* Merge pull request [#8](https://github.com/enthus-appdev/go-atlassian/issues/8) from ctreminiom/feature-adf-comments
+* Merge pull request [#6](https://github.com/enthus-appdev/go-atlassian/issues/6) from ctreminiom/feat/updated-readme.md
 
 
 <a name="v1.1.0"></a>
-## [v1.1.0](https://github.com/ctreminiom/go-atlassian/compare/v1.0.1...v1.1.0)
+## [v1.1.0](https://github.com/enthus-appdev/go-atlassian/compare/v1.0.1...v1.1.0)
 
 > 2021-03-23
 
@@ -518,21 +518,21 @@
 
 ### Pull Requests
 
-* Merge pull request [#5](https://github.com/ctreminiom/go-atlassian/issues/5) from ctreminiom/feature/jira-service-management
+* Merge pull request [#5](https://github.com/enthus-appdev/go-atlassian/issues/5) from ctreminiom/feature/jira-service-management
 
 
 <a name="v1.0.1"></a>
-## [v1.0.1](https://github.com/ctreminiom/go-atlassian/compare/v1.0.0...v1.0.1)
+## [v1.0.1](https://github.com/enthus-appdev/go-atlassian/compare/v1.0.0...v1.0.1)
 
 > 2021-03-04
 
 ### :bug: Bug Fixes
 
-* Closes [#2](https://github.com/ctreminiom/go-atlassian/issues/2)
+* Closes [#2](https://github.com/enthus-appdev/go-atlassian/issues/2)
 
 ### Pull Requests
 
-* Merge pull request [#3](https://github.com/ctreminiom/go-atlassian/issues/3) from ctreminiom/issue-2-unmarshal_array_error_on_IssueSearchService
+* Merge pull request [#3](https://github.com/enthus-appdev/go-atlassian/issues/3) from ctreminiom/issue-2-unmarshal_array_error_on_IssueSearchService
 
 
 <a name="v1.0.0"></a>
@@ -600,5 +600,5 @@
 
 ### Pull Requests
 
-* Merge pull request [#1](https://github.com/ctreminiom/go-atlassian/issues/1) from ctreminiom/dev
+* Merge pull request [#1](https://github.com/enthus-appdev/go-atlassian/issues/1) from ctreminiom/dev
 

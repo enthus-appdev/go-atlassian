@@ -10,9 +10,9 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/ctreminiom/go-atlassian/jira/internal"
-	"github.com/ctreminiom/go-atlassian/pkg/infra/models"
-	"github.com/ctreminiom/go-atlassian/service/common"
+	"github.com/enthus-appdev/go-atlassian/jira/internal"
+	"github.com/enthus-appdev/go-atlassian/pkg/infra/models"
+	"github.com/enthus-appdev/go-atlassian/service/common"
 )
 
 // APIVersion is the version of the Jira API that this client targets.

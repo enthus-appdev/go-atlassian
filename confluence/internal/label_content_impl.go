@@ -3,13 +3,14 @@ package internal
 import (
 	"context"
 	"fmt"
-	model "github.com/ctreminiom/go-atlassian/pkg/infra/models"
-	"github.com/ctreminiom/go-atlassian/service"
-	"github.com/ctreminiom/go-atlassian/service/confluence"
 	"net/http"
 	"net/url"
 	"strconv"
 	"strings"
+
+	model "github.com/enthus-appdev/go-atlassian/pkg/infra/models"
+	"github.com/enthus-appdev/go-atlassian/service"
+	"github.com/enthus-appdev/go-atlassian/service/confluence"
 )
 
 // NewContentLabelService creates a new instance of ContentLabelService.

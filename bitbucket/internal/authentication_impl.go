@@ -1,8 +1,8 @@
 package internal
 
 import (
-	"github.com/ctreminiom/go-atlassian/service"
-	"github.com/ctreminiom/go-atlassian/service/common"
+	"github.com/enthus-appdev/go-atlassian/service"
+	"github.com/enthus-appdev/go-atlassian/service/common"
 )
 
 // NewAuthenticationService returns a new instance of the AuthenticationService.

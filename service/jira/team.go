@@ -2,7 +2,8 @@ package jira
 
 import (
 	"context"
-	"github.com/ctreminiom/go-atlassian/pkg/infra/models"
+
+	"github.com/enthus-appdev/go-atlassian/pkg/infra/models"
 )
 
 // TeamConnector is an interface that defines the methods available from Roadmap Teams API.

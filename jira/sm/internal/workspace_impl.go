@@ -2,10 +2,11 @@ package internal
 
 import (
 	"context"
-	model "github.com/ctreminiom/go-atlassian/pkg/infra/models"
-	"github.com/ctreminiom/go-atlassian/service"
-	"github.com/ctreminiom/go-atlassian/service/sm"
 	"net/http"
+
+	model "github.com/enthus-appdev/go-atlassian/pkg/infra/models"
+	"github.com/enthus-appdev/go-atlassian/service"
+	"github.com/enthus-appdev/go-atlassian/service/sm"
 )
 
 // NewWorkSpaceService creates a new instance of WorkSpaceService.

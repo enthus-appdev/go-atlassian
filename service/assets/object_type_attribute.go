@@ -3,7 +3,7 @@ package assets
 import (
 	"context"
 
-	"github.com/ctreminiom/go-atlassian/pkg/infra/models"
+	"github.com/enthus-appdev/go-atlassian/pkg/infra/models"
 )
 
 // ObjectTypeAttributeConnector represents the Assets object type attributes.

@@ -3,10 +3,11 @@ package internal
 import (
 	"context"
 	"fmt"
-	model "github.com/ctreminiom/go-atlassian/pkg/infra/models"
-	"github.com/ctreminiom/go-atlassian/service"
-	"github.com/ctreminiom/go-atlassian/service/assets"
 	"net/http"
+
+	model "github.com/enthus-appdev/go-atlassian/pkg/infra/models"
+	"github.com/enthus-appdev/go-atlassian/service"
+	"github.com/enthus-appdev/go-atlassian/service/assets"
 )
 
 // NewIconService creates a new instance of IconService.

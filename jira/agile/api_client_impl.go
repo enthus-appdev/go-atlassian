@@ -10,9 +10,9 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/ctreminiom/go-atlassian/jira/agile/internal"
-	model "github.com/ctreminiom/go-atlassian/pkg/infra/models"
-	"github.com/ctreminiom/go-atlassian/service/common"
+	"github.com/enthus-appdev/go-atlassian/jira/agile/internal"
+	model "github.com/enthus-appdev/go-atlassian/pkg/infra/models"
+	"github.com/enthus-appdev/go-atlassian/service/common"
 )
 
 func New(httpClient common.HTTPClient, site string) (*Client, error) {

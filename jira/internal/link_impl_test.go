@@ -1,10 +1,11 @@
 package internal
 
 import (
-	model "github.com/ctreminiom/go-atlassian/pkg/infra/models"
-	"github.com/ctreminiom/go-atlassian/service"
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	model "github.com/enthus-appdev/go-atlassian/pkg/infra/models"
+	"github.com/enthus-appdev/go-atlassian/service"
+	"github.com/stretchr/testify/assert"
 )
 
 func Test_NewLinkService(t *testing.T) {

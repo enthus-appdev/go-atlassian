@@ -10,9 +10,9 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/ctreminiom/go-atlassian/jira/sm/internal"
-	model "github.com/ctreminiom/go-atlassian/pkg/infra/models"
-	"github.com/ctreminiom/go-atlassian/service/common"
+	"github.com/enthus-appdev/go-atlassian/jira/sm/internal"
+	model "github.com/enthus-appdev/go-atlassian/pkg/infra/models"
+	"github.com/enthus-appdev/go-atlassian/service/common"
 )
 
 const defaultServiceManagementVersion = "latest"

@@ -4,15 +4,16 @@ import (
 	"bytes"
 	"context"
 	"fmt"
-	model "github.com/ctreminiom/go-atlassian/pkg/infra/models"
-	"github.com/ctreminiom/go-atlassian/service"
-	"github.com/ctreminiom/go-atlassian/service/confluence"
 	"io"
 	"mime/multipart"
 	"net/http"
 	"net/url"
 	"strconv"
 	"strings"
+
+	model "github.com/enthus-appdev/go-atlassian/pkg/infra/models"
+	"github.com/enthus-appdev/go-atlassian/service"
+	"github.com/enthus-appdev/go-atlassian/service/confluence"
 )
 
 // NewContentAttachmentService creates a new instance of ContentAttachmentService.

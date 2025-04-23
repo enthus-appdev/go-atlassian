@@ -2,7 +2,8 @@ package jira
 
 import (
 	"context"
-	"github.com/ctreminiom/go-atlassian/pkg/infra/models"
+
+	"github.com/enthus-appdev/go-atlassian/pkg/infra/models"
 )
 
 type JQLConnector interface {

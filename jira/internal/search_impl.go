@@ -1,8 +1,8 @@
 package internal
 
 import (
-	model "github.com/ctreminiom/go-atlassian/pkg/infra/models"
-	"github.com/ctreminiom/go-atlassian/service"
+	model "github.com/enthus-appdev/go-atlassian/pkg/infra/models"
+	"github.com/enthus-appdev/go-atlassian/service"
 )
 
 // NewSearchService creates a new instance of SearchADFService and SearchRichTextService.

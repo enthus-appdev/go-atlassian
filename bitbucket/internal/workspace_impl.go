@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"net/http"
 
-	model "github.com/ctreminiom/go-atlassian/pkg/infra/models"
-	"github.com/ctreminiom/go-atlassian/service"
-	"github.com/ctreminiom/go-atlassian/service/bitbucket"
+	model "github.com/enthus-appdev/go-atlassian/pkg/infra/models"
+	"github.com/enthus-appdev/go-atlassian/service"
+	"github.com/enthus-appdev/go-atlassian/service/bitbucket"
 )
 
 // NewWorkspaceService handles communication with the workspace related methods of the Bitbucket API.

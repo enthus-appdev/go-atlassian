@@ -2,8 +2,9 @@ package confluence
 
 import (
 	"context"
-	model "github.com/ctreminiom/go-atlassian/pkg/infra/models"
 	"io"
+
+	model "github.com/enthus-appdev/go-atlassian/pkg/infra/models"
 )
 
 type ContentAttachmentConnector interface {

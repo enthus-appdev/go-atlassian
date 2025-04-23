@@ -11,10 +11,10 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/ctreminiom/go-atlassian/admin/internal"
-	model "github.com/ctreminiom/go-atlassian/pkg/infra/models"
-	"github.com/ctreminiom/go-atlassian/service/common"
-	"github.com/ctreminiom/go-atlassian/service/mocks"
+	"github.com/enthus-appdev/go-atlassian/admin/internal"
+	model "github.com/enthus-appdev/go-atlassian/pkg/infra/models"
+	"github.com/enthus-appdev/go-atlassian/service/common"
+	"github.com/enthus-appdev/go-atlassian/service/mocks"
 )
 
 func TestClient_Call(t *testing.T) {

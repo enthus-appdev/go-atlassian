@@ -2,7 +2,8 @@ package sm
 
 import (
 	"context"
-	"github.com/ctreminiom/go-atlassian/pkg/infra/models"
+
+	"github.com/enthus-appdev/go-atlassian/pkg/infra/models"
 )
 
 type WorkSpaceConnector interface {

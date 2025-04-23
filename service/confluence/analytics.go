@@ -3,7 +3,7 @@ package confluence
 import (
 	"context"
 
-	model "github.com/ctreminiom/go-atlassian/pkg/infra/models"
+	model "github.com/enthus-appdev/go-atlassian/pkg/infra/models"
 )
 
 // AnalyticsConnector the interface for the analytics methods of the Confluence Service.

@@ -7,9 +7,9 @@ import (
 	"net/url"
 	"strconv"
 
-	model "github.com/ctreminiom/go-atlassian/pkg/infra/models"
-	"github.com/ctreminiom/go-atlassian/service"
-	"github.com/ctreminiom/go-atlassian/service/jira"
+	model "github.com/enthus-appdev/go-atlassian/pkg/infra/models"
+	"github.com/enthus-appdev/go-atlassian/service"
+	"github.com/enthus-appdev/go-atlassian/service/jira"
 )
 
 // NewIssueFieldContextService creates a new instance of IssueFieldContextService.
@@ -91,7 +91,7 @@ func (i *IssueFieldContextService) SetDefaultValue(ctx context.Context, fieldID 
 //
 // GET /rest/api/{2-3}/field/{fieldID}/context/issuetypemapping
 //
-// Docs: TODO: The documentation needs to be created, raise a ticket here: https://github.com/ctreminiom/go-atlassian/issues
+// Docs: TODO: The documentation needs to be created, raise a ticket here: https://github.com/enthus-appdev/go-atlassian/issues
 func (i *IssueFieldContextService) IssueTypesContext(ctx context.Context, fieldID string, contextIDs []int, startAt, maxResults int) (*model.IssueTypeToContextMappingPageScheme, *model.ResponseScheme, error) {
 	return i.internalClient.IssueTypesContext(ctx, fieldID, contextIDs, startAt, maxResults)
 }
@@ -104,7 +104,7 @@ func (i *IssueFieldContextService) IssueTypesContext(ctx context.Context, fieldI
 //
 // GET /rest/api/{2-3}/field/{fieldID}/context/projectmapping
 //
-// Docs: TODO: The documentation needs to be created, raise a ticket here: https://github.com/ctreminiom/go-atlassian/issues
+// Docs: TODO: The documentation needs to be created, raise a ticket here: https://github.com/enthus-appdev/go-atlassian/issues
 func (i *IssueFieldContextService) ProjectsContext(ctx context.Context, fieldID string, contextIDs []int, startAt, maxResults int) (*model.CustomFieldContextProjectMappingPageScheme, *model.ResponseScheme, error) {
 	return i.internalClient.ProjectsContext(ctx, fieldID, contextIDs, startAt, maxResults)
 }
