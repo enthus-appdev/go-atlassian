@@ -135,7 +135,7 @@ func (i *internalSearchADFImpl) Post(ctx context.Context, jql string, nextPageTo
 		Fields:          fields,
 		Expand:          expands,
 		Properties:      properties,
-		FieldsByKeys:    fieldsByKey,
+		FieldsByKeys:    fieldsByKeys,
 		FailFast:        failFast,
 		ReconcileIssues: reconcileIssues,
 	}
