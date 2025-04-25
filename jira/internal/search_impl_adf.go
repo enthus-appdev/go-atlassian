@@ -33,8 +33,8 @@ func (s *SearchADFService) Checks(ctx context.Context, payload *model.IssueSearc
 // GET /rest/api/3/search/jql
 //
 // https://docs.go-atlassian.io/jira-software-cloud/issues/search#search-for-issues-using-jql-get
-func (s *SearchADFService) Get(ctx context.Context, jql string, nextPageToken *string, maxResults int, fields, expands, properties []string, fieldsByKey, failFast bool, reconcileIssues []int) (*model.IssueSearchScheme, *model.ResponseScheme, error) {
-	return s.internalClient.Get(ctx, jql, nextPageToken, maxResults, fields, expands, properties, fieldsByKey, failFast, reconcileIssues)
+func (s *SearchADFService) Get(ctx context.Context, jql string, nextPageToken *string, maxResults int, fields, expands, properties []string, fieldsByKeys, failFast bool, reconcileIssues []int) (*model.IssueSearchScheme, *model.ResponseScheme, error) {
+	return s.internalClient.Get(ctx, jql, nextPageToken, maxResults, fields, expands, properties, fieldsByKeys, failFast, reconcileIssues)
 }
 
 // Post search issues using JQL query under the HTTP Method POST
@@ -42,8 +42,8 @@ func (s *SearchADFService) Get(ctx context.Context, jql string, nextPageToken *s
 // POST /rest/api/3/search/jql
 //
 // https://docs.go-atlassian.io/jira-software-cloud/issues/search#search-for-issues-using-jql-get
-func (s *SearchADFService) Post(ctx context.Context, jql string, nextPageToken *string, maxResults int, fields, expands, properties []string, fieldsByKey, failFast bool, reconcileIssues []int) (*model.IssueSearchScheme, *model.ResponseScheme, error) {
-	return s.internalClient.Post(ctx, jql, nextPageToken, maxResults, fields, expands, properties, fieldsByKey, failFast, reconcileIssues)
+func (s *SearchADFService) Post(ctx context.Context, jql string, nextPageToken *string, maxResults int, fields, expands, properties []string, fieldsByKeys, failFast bool, reconcileIssues []int) (*model.IssueSearchScheme, *model.ResponseScheme, error) {
+	return s.internalClient.Post(ctx, jql, nextPageToken, maxResults, fields, expands, properties, fieldsByKeys, failFast, reconcileIssues)
 }
 
 type internalSearchADFImpl struct {
@@ -69,7 +69,7 @@ func (i *internalSearchADFImpl) Checks(ctx context.Context, payload *model.Issue
 	return issues, response, nil
 }
 
-func (i *internalSearchADFImpl) Get(ctx context.Context, jql string, nextPageToken *string, maxResults int, fields, expands, properties []string, fieldsByKey, failFast bool, reconcileIssues []int) (*model.IssueSearchScheme, *model.ResponseScheme, error) {
+func (i *internalSearchADFImpl) Get(ctx context.Context, jql string, nextPageToken *string, maxResults int, fields, expands, properties []string, fieldsByKeys, failFast bool, reconcileIssues []int) (*model.IssueSearchScheme, *model.ResponseScheme, error) {
 
 	if jql == "" {
 		return nil, nil, model.ErrNoJQL
@@ -81,7 +81,7 @@ func (i *internalSearchADFImpl) Get(ctx context.Context, jql string, nextPageTok
 		params.Add("nextPageToken", *nextPageToken)
 	}
 	params.Add("maxResults", strconv.Itoa(maxResults))
-	params.Add("fieldsByKey", strconv.FormatBool(fieldsByKey))
+	params.Add("fieldsByKeys", strconv.FormatBool(fieldsByKeys))
 	params.Add("failFast", strconv.FormatBool(failFast))
 
 	if len(expands) != 0 {
@@ -116,7 +116,7 @@ func (i *internalSearchADFImpl) Get(ctx context.Context, jql string, nextPageTok
 	return issues, response, nil
 }
 
-func (i *internalSearchADFImpl) Post(ctx context.Context, jql string, nextPageToken *string, maxResults int, fields, expands, properties []string, fieldsByKey, failFast bool, reconcileIssues []int) (*model.IssueSearchScheme, *model.ResponseScheme, error) {
+func (i *internalSearchADFImpl) Post(ctx context.Context, jql string, nextPageToken *string, maxResults int, fields, expands, properties []string, fieldsByKeys, failFast bool, reconcileIssues []int) (*model.IssueSearchScheme, *model.ResponseScheme, error) {
 
 	payload := struct {
 		Jql             string   `json:"jql,omitempty"`
@@ -125,7 +125,7 @@ func (i *internalSearchADFImpl) Post(ctx context.Context, jql string, nextPageTo
 		Fields          []string `json:"fields,omitempty"`
 		Expand          []string `json:"expand,omitempty"`
 		Properties      []string `json:"properties,omitempty"`
-		FieldsByKey     bool     `json:"fieldsByKey,omitempty"`
+		FieldsByKeys    bool     `json:"fieldsByKeys,omitempty"`
 		FailFast        bool     `json:"failFast,omitempty"`
 		ReconcileIssues []int    `json:"reconcileIssues,omitempty"`
 	}{
@@ -135,7 +135,7 @@ func (i *internalSearchADFImpl) Post(ctx context.Context, jql string, nextPageTo
 		Fields:          fields,
 		Expand:          expands,
 		Properties:      properties,
-		FieldsByKey:     fieldsByKey,
+		FieldsByKeys:    fieldsByKey,
 		FailFast:        failFast,
 		ReconcileIssues: reconcileIssues,
 	}
