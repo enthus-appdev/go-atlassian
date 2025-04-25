@@ -69,7 +69,7 @@ func (i *internalSearchADFImpl) Checks(ctx context.Context, payload *model.Issue
 	return issues, response, nil
 }
 
-func (i *internalSearchADFImpl) Get(ctx context.Context, jql, nextPageToken string, maxResults int, fields, expands, properties []string, fieldsByKey, failFast, reconcileIssues bool) (*model.IssueSearchScheme, *model.ResponseScheme, error) {
+func (i *internalSearchADFImpl) Get(ctx context.Context, jql, nextPageToken string, maxResults int, fields, expands, properties []string, fieldsByKey, failFast bool, reconcileIssues []int) (*model.IssueSearchScheme, *model.ResponseScheme, error) {
 
 	if jql == "" {
 		return nil, nil, model.ErrNoJQL
@@ -81,7 +81,6 @@ func (i *internalSearchADFImpl) Get(ctx context.Context, jql, nextPageToken stri
 	params.Add("maxResults", strconv.Itoa(maxResults))
 	params.Add("fieldsByKey", strconv.FormatBool(fieldsByKey))
 	params.Add("failFast", strconv.FormatBool(failFast))
-	params.Add("reconcileIssues", strconv.FormatBool(reconcileIssues))
 
 	if len(expands) != 0 {
 		params.Add("expand", strings.Join(expands, ","))
@@ -90,8 +89,13 @@ func (i *internalSearchADFImpl) Get(ctx context.Context, jql, nextPageToken stri
 	if len(fields) != 0 {
 		params.Add("fields", strings.Join(fields, ","))
 	}
+
 	if len(properties) != 0 {
 		params.Add("properties", strings.Join(properties, ","))
+	}
+
+	if len(reconcileIssues) != 0 {
+		params.Add("reconcileIssues", strings.Join(strings.Fields(fmt.Sprint(reconcileIssues)), ","))
 	}
 
 	endpoint := fmt.Sprintf("rest/api/%v/search/jql?%v", i.version, params.Encode())
@@ -110,7 +114,7 @@ func (i *internalSearchADFImpl) Get(ctx context.Context, jql, nextPageToken stri
 	return issues, response, nil
 }
 
-func (i *internalSearchADFImpl) Post(ctx context.Context, jql, nextPageToken string, maxResults int, fields, expands, properties []string, fieldsByKey, failFast, reconcileIssues bool) (*model.IssueSearchScheme, *model.ResponseScheme, error) {
+func (i *internalSearchADFImpl) Post(ctx context.Context, jql, nextPageToken string, maxResults int, fields, expands, properties []string, fieldsByKey, failFast bool, reconcileIssues []int) (*model.IssueSearchScheme, *model.ResponseScheme, error) {
 
 	payload := struct {
 		Jql             string   `json:"jql,omitempty"`
