@@ -69,7 +69,7 @@ func (i *internalSearchADFImpl) Checks(ctx context.Context, payload *model.Issue
 	return issues, response, nil
 }
 
-func (i *internalSearchADFImpl) Get(ctx context.Context, jql, nextPageToken string, maxResults int, fields, expands, properties []string, fieldsByKey, failFast bool, reconcileIssues []int) (*model.IssueSearchScheme, *model.ResponseScheme, error) {
+func (i *internalSearchADFImpl) Get(ctx context.Context, jql string, nextPageToken *string, maxResults int, fields, expands, properties []string, fieldsByKey, failFast bool, reconcileIssues []int) (*model.IssueSearchScheme, *model.ResponseScheme, error) {
 
 	if jql == "" {
 		return nil, nil, model.ErrNoJQL
@@ -77,7 +77,9 @@ func (i *internalSearchADFImpl) Get(ctx context.Context, jql, nextPageToken stri
 
 	params := url.Values{}
 	params.Add("jql", jql)
-	params.Add("nextPageToken", nextPageToken)
+	if nextPageToken != nil {
+		params.Add("nextPageToken", *nextPageToken)
+	}
 	params.Add("maxResults", strconv.Itoa(maxResults))
 	params.Add("fieldsByKey", strconv.FormatBool(fieldsByKey))
 	params.Add("failFast", strconv.FormatBool(failFast))
@@ -114,18 +116,18 @@ func (i *internalSearchADFImpl) Get(ctx context.Context, jql, nextPageToken stri
 	return issues, response, nil
 }
 
-func (i *internalSearchADFImpl) Post(ctx context.Context, jql, nextPageToken string, maxResults int, fields, expands, properties []string, fieldsByKey, failFast bool, reconcileIssues []int) (*model.IssueSearchScheme, *model.ResponseScheme, error) {
+func (i *internalSearchADFImpl) Post(ctx context.Context, jql string, nextPageToken *string, maxResults int, fields, expands, properties []string, fieldsByKey, failFast bool, reconcileIssues []int) (*model.IssueSearchScheme, *model.ResponseScheme, error) {
 
 	payload := struct {
 		Jql             string   `json:"jql,omitempty"`
-		NextPageToken   string   `json:"nextPageToken,omitempty"`
+		NextPageToken   *string  `json:"nextPageToken,omitempty"`
 		MaxResults      int      `json:"maxResults,omitempty"`
 		Fields          []string `json:"fields,omitempty"`
 		Expand          []string `json:"expand,omitempty"`
 		Properties      []string `json:"properties,omitempty"`
 		FieldsByKey     bool     `json:"fieldsByKey,omitempty"`
 		FailFast        bool     `json:"failFast,omitempty"`
-		ReconcileIssues bool     `json:"reconcileIssues,omitempty"`
+		ReconcileIssues []int    `json:"reconcileIssues,omitempty"`
 	}{
 		Jql:             jql,
 		NextPageToken:   nextPageToken,
