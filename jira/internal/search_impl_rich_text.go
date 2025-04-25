@@ -69,7 +69,7 @@ func (i *internalSearchRichTextImpl) Checks(ctx context.Context, payload *model.
 	return issues, response, nil
 }
 
-func (i *internalSearchRichTextImpl) Get(ctx context.Context, jql string, fields, expands []string, startAt, maxResults int, validate string) (*model.IssueSearchSchemeV2, *model.ResponseScheme, error) {
+func (i *internalSearchRichTextImpl) Get(ctx context.Context, jql string, nextPageToken *string, maxResults int, fields, expands, properties []string, fieldsByKey, failFast bool, reconcileIssues []int) (*model.IssueSearchSchemeV2, *model.ResponseScheme, error) {
 
 	if jql == "" {
 		return nil, nil, model.ErrNoJQL
@@ -77,22 +77,30 @@ func (i *internalSearchRichTextImpl) Get(ctx context.Context, jql string, fields
 
 	params := url.Values{}
 	params.Add("jql", jql)
-	params.Add("startAt", strconv.Itoa(startAt))
+	if nextPageToken != nil {
+		params.Add("nextPageToken", *nextPageToken)
+	}
 	params.Add("maxResults", strconv.Itoa(maxResults))
+	params.Add("fieldsByKey", strconv.FormatBool(fieldsByKey))
+	params.Add("failFast", strconv.FormatBool(failFast))
 
 	if len(expands) != 0 {
 		params.Add("expand", strings.Join(expands, ","))
-	}
-
-	if len(validate) != 0 {
-		params.Add("validateQuery", validate)
 	}
 
 	if len(fields) != 0 {
 		params.Add("fields", strings.Join(fields, ","))
 	}
 
-	endpoint := fmt.Sprintf("rest/api/%v/search?%v", i.version, params.Encode())
+	if len(properties) != 0 {
+		params.Add("properties", strings.Join(properties, ","))
+	}
+
+	if len(reconcileIssues) != 0 {
+		params.Add("reconcileIssues", strings.Join(strings.Fields(fmt.Sprint(reconcileIssues)), ","))
+	}
+
+	endpoint := fmt.Sprintf("rest/api/%v/search/jql?%v", i.version, params.Encode())
 
 	request, err := i.c.NewRequest(ctx, http.MethodGet, endpoint, "", nil)
 	if err != nil {
@@ -108,25 +116,31 @@ func (i *internalSearchRichTextImpl) Get(ctx context.Context, jql string, fields
 	return issues, response, nil
 }
 
-func (i *internalSearchRichTextImpl) Post(ctx context.Context, jql string, fields, expands []string, startAt, maxResults int, validate string) (*model.IssueSearchSchemeV2, *model.ResponseScheme, error) {
+func (i *internalSearchRichTextImpl) Post(ctx context.Context, jql string, nextPageToken *string, maxResults int, fields, expands, properties []string, fieldsByKey, failFast bool, reconcileIssues []int) (*model.IssueSearchSchemeV2, *model.ResponseScheme, error) {
 
 	payload := struct {
-		Expand        []string `json:"expand,omitempty"`
-		Jql           string   `json:"jql,omitempty"`
-		MaxResults    int      `json:"maxResults,omitempty"`
-		Fields        []string `json:"fields,omitempty"`
-		StartAt       int      `json:"startAt,omitempty"`
-		ValidateQuery string   `json:"validateQuery,omitempty"`
+		Jql             string   `json:"jql,omitempty"`
+		NextPageToken   *string  `json:"nextPageToken,omitempty"`
+		MaxResults      int      `json:"maxResults,omitempty"`
+		Fields          []string `json:"fields,omitempty"`
+		Expand          []string `json:"expand,omitempty"`
+		Properties      []string `json:"properties,omitempty"`
+		FieldsByKey     bool     `json:"fieldsByKey,omitempty"`
+		FailFast        bool     `json:"failFast,omitempty"`
+		ReconcileIssues []int    `json:"reconcileIssues,omitempty"`
 	}{
-		Expand:        expands,
-		Jql:           jql,
-		MaxResults:    maxResults,
-		Fields:        fields,
-		StartAt:       startAt,
-		ValidateQuery: validate,
+		Jql:             jql,
+		NextPageToken:   nextPageToken,
+		MaxResults:      maxResults,
+		Fields:          fields,
+		Expand:          expands,
+		Properties:      properties,
+		FieldsByKey:     fieldsByKey,
+		FailFast:        failFast,
+		ReconcileIssues: reconcileIssues,
 	}
 
-	endpoint := fmt.Sprintf("rest/api/%v/search", i.version)
+	endpoint := fmt.Sprintf("rest/api/%v/search/jql", i.version)
 
 	request, err := i.c.NewRequest(ctx, http.MethodPost, endpoint, "", payload)
 	if err != nil {

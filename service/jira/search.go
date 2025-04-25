@@ -39,15 +39,15 @@ type SearchADFConnector interface {
 
 	// Get search issues using JQL query under the HTTP Method GET
 	//
-	// GET /rest/api/3/search
+	// GET /rest/api/3/search/jql
 	//
 	// https://docs.go-atlassian.io/jira-software-cloud/issues/search#search-for-issues-using-jql-get
-	Get(ctx context.Context, jql string, fields, expands []string, startAt, maxResults int, validate string) (*model.IssueSearchScheme, *model.ResponseScheme, error)
+	Get(ctx context.Context, jql string, nextPageToken *string, maxResults int, fields, expands, properties []string, fieldsByKey, failFast bool, reconcileIssues []int) (*model.IssueSearchScheme, *model.ResponseScheme, error)
 
 	// Post search issues using JQL query under the HTTP Method POST
 	//
-	// POST /rest/api/3/search
+	// POST /rest/api/3/search/jql
 	//
 	// https://docs.go-atlassian.io/jira-software-cloud/issues/search#search-for-issues-using-jql-get
-	Post(ctx context.Context, jql string, fields, expands []string, startAt, maxResults int, validate string) (*model.IssueSearchScheme, *model.ResponseScheme, error)
+	Post(ctx context.Context, jql string, nextPageToken *string, maxResults int, fields, expands, properties []string, fieldsByKey, failFast bool, reconcileIssues []int) (*model.IssueSearchScheme, *model.ResponseScheme, error)
 }
