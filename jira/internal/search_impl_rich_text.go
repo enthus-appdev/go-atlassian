@@ -30,20 +30,20 @@ func (s *SearchRichTextService) Checks(ctx context.Context, payload *model.Issue
 
 // Get search issues using JQL query under the HTTP Method GET
 //
-// GET /rest/api/2/search
+// GET /rest/api/2/search/jql
 //
 // https://docs.go-atlassian.io/jira-software-cloud/issues/search#search-for-issues-using-jql-get
-func (s *SearchRichTextService) Get(ctx context.Context, jql string, fields, expands []string, startAt, maxResults int, validate string) (*model.IssueSearchSchemeV2, *model.ResponseScheme, error) {
-	return s.internalClient.Get(ctx, jql, fields, expands, startAt, maxResults, validate)
+func (s *SearchRichTextService) Get(ctx context.Context, jql, nextPageToken string, maxResults int, fields, expand, properties []string, fieldsByKey, failFast, reconcileIssues bool) (*model.IssueSearchSchemeV2, *model.ResponseScheme, error) {
+	return s.internalClient.Get(ctx, jql, nextPageToken, maxResults, fields, expand, properties, fieldsByKey, failFast, reconcileIssues)
 }
 
-// Post search issues using JQL query under the HTTP Method POST
+// Post search issues using JQL query under the HTTP Method Get
 //
-// POST /rest/api/2/search
+// Post /rest/api/2/search/jql
 //
 // https://docs.go-atlassian.io/jira-software-cloud/issues/search#search-for-issues-using-jql-get
-func (s *SearchRichTextService) Post(ctx context.Context, jql string, fields, expands []string, startAt, maxResults int, validate string) (*model.IssueSearchSchemeV2, *model.ResponseScheme, error) {
-	return s.internalClient.Post(ctx, jql, fields, expands, startAt, maxResults, validate)
+func (s *SearchRichTextService) Post(ctx context.Context, jql, nextPageToken string, maxResults int, fields, expand, properties []string, fieldsByKey, failFast, reconcileIssues bool) (*model.IssueSearchSchemeV2, *model.ResponseScheme, error) {
+	return s.internalClient.Post(ctx, jql, nextPageToken, maxResults, fields, expand, properties, fieldsByKey, failFast, reconcileIssues)
 }
 
 type internalSearchRichTextImpl struct {

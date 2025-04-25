@@ -24,14 +24,14 @@ type SearchRichTextConnector interface {
 	// GET /rest/api/2/search
 	//
 	// https://docs.go-atlassian.io/jira-software-cloud/issues/search#search-for-issues-using-jql-get
-	Get(ctx context.Context, jql string, fields, expands []string, startAt, maxResults int, validate string) (*model.IssueSearchSchemeV2, *model.ResponseScheme, error)
+	Get(ctx context.Context, jql, nextPageToken string, maxResults int, fields, expand, properties []string, fieldsByKey, failFast, reconcileIssues bool) (*model.IssueSearchSchemeV2, *model.ResponseScheme, error)
 
 	// Post search issues using JQL query under the HTTP Method POST
 	//
 	// POST /rest/api/2/search
 	//
 	// https://docs.go-atlassian.io/jira-software-cloud/issues/search#search-for-issues-using-jql-get
-	Post(ctx context.Context, jql string, fields, expands []string, startAt, maxResults int, validate string) (*model.IssueSearchSchemeV2, *model.ResponseScheme, error)
+	Post(ctx context.Context, jql, nextPageToken string, maxResults int, fields, expand, properties []string, fieldsByKey, failFast, reconcileIssues bool) (*model.IssueSearchSchemeV2, *model.ResponseScheme, error)
 }
 
 type SearchADFConnector interface {
