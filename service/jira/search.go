@@ -31,7 +31,7 @@ type SearchRichTextConnector interface {
 	// POST /rest/api/2/search/jql
 	//
 	// https://docs.go-atlassian.io/jira-software-cloud/issues/search#search-for-issues-using-jql-get
-	Post(ctx context.Context, jqlstring, nextPageToken *string, maxResults int, fields, expands, properties []string, fieldsByKey, failFast bool, reconcileIssues []int) (*model.IssueSearchSchemeV2, *model.ResponseScheme, error)
+	Post(ctx context.Context, jql string, nextPageToken *string, maxResults int, fields, expands, properties []string, fieldsByKey, failFast bool, reconcileIssues []int) (*model.IssueSearchSchemeV2, *model.ResponseScheme, error)
 }
 
 type SearchADFConnector interface {
