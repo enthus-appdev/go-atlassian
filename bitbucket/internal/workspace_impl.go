@@ -8,6 +8,9 @@ import (
 	model "github.com/ctreminiom/go-atlassian/v2/pkg/infra/models"
 	"github.com/ctreminiom/go-atlassian/v2/service"
 	"github.com/ctreminiom/go-atlassian/v2/service/bitbucket"
+	"go.opentelemetry.io/otel"
+	"go.opentelemetry.io/otel/attribute"
+	"go.opentelemetry.io/otel/codes"
 )
 
 // NewWorkspaceService handles communication with the workspace related methods of the Bitbucket API.
@@ -72,21 +75,52 @@ type internalWorkspaceServiceImpl struct {
 // Get returns the requested workspace.
 func (i *internalWorkspaceServiceImpl) Get(ctx context.Context, workspace string) (*model.WorkspaceScheme, *model.ResponseScheme, error) {
 
+	// Start tracing span
+	tracer := otel.Tracer("github.com/ctreminiom/go-atlassian/v2/bitbucket")
+	ctx, span := tracer.Start(ctx, "bitbucket.workspace.get")
+	defer span.End()
+
 	if workspace == "" {
+		span.SetStatus(codes.Error, model.ErrNoWorkspace.Error())
+		span.RecordError(model.ErrNoWorkspace)
 		return nil, nil, model.ErrNoWorkspace
 	}
 
 	endpoint := fmt.Sprintf("2.0/workspaces/%v", workspace)
 
+	// Set span attributes for the HTTP request
+	span.SetAttributes(
+		attribute.String("http.method", http.MethodGet),
+		attribute.String("http.url", endpoint),
+		attribute.String("component", "go-atlassian"),
+		attribute.String("module", "bitbucket"),
+		attribute.String("operation", "workspace.get"),
+		attribute.String("workspace.name", workspace),
+	)
+
 	request, err := i.c.NewRequest(ctx, http.MethodGet, endpoint, "", nil)
 	if err != nil {
+		span.SetStatus(codes.Error, err.Error())
+		span.RecordError(err)
 		return nil, nil, err
 	}
 
 	result := new(model.WorkspaceScheme)
 	response, err := i.c.Call(request, result)
 	if err != nil {
+		span.SetStatus(codes.Error, err.Error())
+		span.RecordError(err)
 		return nil, response, err
+	}
+
+	// Set response attributes
+	if response != nil {
+		span.SetAttributes(attribute.Int("http.status_code", response.Code))
+		if response.Code >= 400 {
+			span.SetStatus(codes.Error, http.StatusText(response.Code))
+		} else {
+			span.SetStatus(codes.Ok, "")
+		}
 	}
 
 	return result, response, nil
