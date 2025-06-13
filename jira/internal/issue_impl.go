@@ -8,6 +8,9 @@ import (
 
 	model "github.com/ctreminiom/go-atlassian/v2/pkg/infra/models"
 	"github.com/ctreminiom/go-atlassian/v2/service"
+	"go.opentelemetry.io/otel"
+	"go.opentelemetry.io/otel/attribute"
+	"go.opentelemetry.io/otel/codes"
 )
 
 // IssueServices groups various services related to issue management in Jira Service Management.
@@ -136,22 +139,62 @@ func deleteIssue(ctx context.Context, client service.Connector, version, issueKe
 
 func assignIssue(ctx context.Context, client service.Connector, version, issueKeyOrID, accountID string) (*model.ResponseScheme, error) {
 
+	// Start tracing span
+	tracer := otel.Tracer("github.com/ctreminiom/go-atlassian/v2/jira")
+	ctx, span := tracer.Start(ctx, "jira.issue.assign")
+	defer span.End()
+
 	if issueKeyOrID == "" {
+		span.SetStatus(codes.Error, model.ErrNoIssueKeyOrID.Error())
+		span.RecordError(model.ErrNoIssueKeyOrID)
 		return nil, model.ErrNoIssueKeyOrID
 	}
 
 	if accountID == "" {
+		span.SetStatus(codes.Error, model.ErrNoAccountID.Error())
+		span.RecordError(model.ErrNoAccountID)
 		return nil, model.ErrNoAccountID
 	}
 
 	endpoint := fmt.Sprintf("/rest/api/%v/issue/%v/assignee", version, issueKeyOrID)
 
+	// Set span attributes for the HTTP request
+	span.SetAttributes(
+		attribute.String("http.method", http.MethodPut),
+		attribute.String("http.url", endpoint),
+		attribute.String("component", "go-atlassian"),
+		attribute.String("module", "jira"),
+		attribute.String("operation", "issue.assign"),
+		attribute.String("issue.key", issueKeyOrID),
+		attribute.String("account.id", accountID),
+		attribute.String("api.version", version),
+	)
+
 	request, err := client.NewRequest(ctx, http.MethodPut, endpoint, "", map[string]interface{}{"accountId": accountID})
 	if err != nil {
+		span.SetStatus(codes.Error, err.Error())
+		span.RecordError(err)
 		return nil, err
 	}
 
-	return client.Call(request, nil)
+	res, err := client.Call(request, nil)
+	if err != nil {
+		span.SetStatus(codes.Error, err.Error())
+		span.RecordError(err)
+		return res, err
+	}
+
+	// Set response attributes
+	if res != nil {
+		span.SetAttributes(attribute.Int("http.status_code", res.Code))
+		if res.Code >= 400 {
+			span.SetStatus(codes.Error, http.StatusText(res.Code))
+		} else {
+			span.SetStatus(codes.Ok, "")
+		}
+	}
+
+	return res, nil
 }
 
 func sendNotification(ctx context.Context, client service.Connector, version, issueKeyOrID string, options *model.IssueNotifyOptionsScheme) (
