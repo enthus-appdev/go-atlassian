@@ -6,6 +6,9 @@ import (
 	model "github.com/ctreminiom/go-atlassian/v2/pkg/infra/models"
 	"github.com/ctreminiom/go-atlassian/v2/service"
 	"github.com/ctreminiom/go-atlassian/v2/service/assets"
+	"go.opentelemetry.io/otel"
+	"go.opentelemetry.io/otel/attribute"
+	"go.opentelemetry.io/otel/codes"
 	"net/http"
 	"net/url"
 	"strconv"
@@ -207,25 +210,59 @@ func (i *internalObjectImpl) Get(ctx context.Context, workspaceID, objectID stri
 
 func (i *internalObjectImpl) Update(ctx context.Context, workspaceID, objectID string, payload *model.ObjectPayloadScheme) (*model.ObjectScheme, *model.ResponseScheme, error) {
 
+	// Start tracing span
+	tracer := otel.Tracer("github.com/ctreminiom/go-atlassian/v2/assets")
+	ctx, span := tracer.Start(ctx, "assets.object.update")
+	defer span.End()
+
 	if workspaceID == "" {
+		span.SetStatus(codes.Error, model.ErrNoWorkspaceID.Error())
+		span.RecordError(model.ErrNoWorkspaceID)
 		return nil, nil, model.ErrNoWorkspaceID
 	}
 
 	if objectID == "" {
+		span.SetStatus(codes.Error, model.ErrNoObjectID.Error())
+		span.RecordError(model.ErrNoObjectID)
 		return nil, nil, model.ErrNoObjectID
 	}
 
 	endpoint := fmt.Sprintf("jsm/assets/workspace/%v/v1/object/%v", workspaceID, objectID)
 
+	// Set span attributes for the HTTP request
+	span.SetAttributes(
+		attribute.String("http.method", http.MethodPut),
+		attribute.String("http.url", endpoint),
+		attribute.String("component", "go-atlassian"),
+		attribute.String("module", "assets"),
+		attribute.String("operation", "object.update"),
+		attribute.String("workspace.id", workspaceID),
+		attribute.String("object.id", objectID),
+	)
+
 	req, err := i.c.NewRequest(ctx, http.MethodPut, endpoint, "", payload)
 	if err != nil {
+		span.SetStatus(codes.Error, err.Error())
+		span.RecordError(err)
 		return nil, nil, err
 	}
 
 	object := new(model.ObjectScheme)
 	res, err := i.c.Call(req, object)
 	if err != nil {
+		span.SetStatus(codes.Error, err.Error())
+		span.RecordError(err)
 		return nil, res, err
+	}
+
+	// Set response attributes
+	if res != nil {
+		span.SetAttributes(attribute.Int("http.status_code", res.Code))
+		if res.Code >= 400 {
+			span.SetStatus(codes.Error, http.StatusText(res.Code))
+		} else {
+			span.SetStatus(codes.Ok, "")
+		}
 	}
 
 	return object, res, nil

@@ -8,6 +8,9 @@ import (
 	model "github.com/ctreminiom/go-atlassian/v2/pkg/infra/models"
 	"github.com/ctreminiom/go-atlassian/v2/service"
 	"github.com/ctreminiom/go-atlassian/v2/service/admin"
+	"go.opentelemetry.io/otel"
+	"go.opentelemetry.io/otel/attribute"
+	"go.opentelemetry.io/otel/codes"
 )
 
 // NewOrganizationDirectoryService creates a new instance of OrganizationDirectoryService.
@@ -84,25 +87,57 @@ type internalOrganizationDirectoryServiceImpl struct {
 
 func (i *internalOrganizationDirectoryServiceImpl) Activity(ctx context.Context, organizationID, accountID string) (*model.UserProductAccessScheme, *model.ResponseScheme, error) {
 
+	// Start tracing span
+	tracer := otel.Tracer("github.com/ctreminiom/go-atlassian/v2/admin")
+	ctx, span := tracer.Start(ctx, "admin.organization.directory.activity")
+	defer span.End()
+
 	if organizationID == "" {
+		span.SetStatus(codes.Error, model.ErrNoAdminOrganization.Error())
+		span.RecordError(model.ErrNoAdminOrganization)
 		return nil, nil, model.ErrNoAdminOrganization
 	}
 
 	if accountID == "" {
+		span.SetStatus(codes.Error, model.ErrNoAdminAccountID.Error())
+		span.RecordError(model.ErrNoAdminAccountID)
 		return nil, nil, model.ErrNoAdminAccountID
 	}
 
 	endpoint := fmt.Sprintf("admin/v1/orgs/%v/directory/users/%v/last-active-dates", organizationID, accountID)
 
+	// Set span attributes for the HTTP request
+	span.SetAttributes(
+		attribute.String("http.method", http.MethodGet),
+		attribute.String("http.url", endpoint),
+		attribute.String("component", "go-atlassian"),
+		attribute.String("module", "admin"),
+		attribute.String("operation", "organization.directory.activity"),
+	)
+
 	req, err := i.c.NewRequest(ctx, http.MethodGet, endpoint, "", nil)
 	if err != nil {
+		span.SetStatus(codes.Error, err.Error())
+		span.RecordError(err)
 		return nil, nil, err
 	}
 
 	activity := new(model.UserProductAccessScheme)
 	res, err := i.c.Call(req, activity)
 	if err != nil {
+		span.SetStatus(codes.Error, err.Error())
+		span.RecordError(err)
 		return nil, res, err
+	}
+
+	// Set response attributes
+	if res != nil {
+		span.SetAttributes(attribute.Int("http.status_code", res.Code))
+		if res.Code >= 400 {
+			span.SetStatus(codes.Error, http.StatusText(res.Code))
+		} else {
+			span.SetStatus(codes.Ok, "")
+		}
 	}
 
 	return activity, res, nil
@@ -110,22 +145,59 @@ func (i *internalOrganizationDirectoryServiceImpl) Activity(ctx context.Context,
 
 func (i *internalOrganizationDirectoryServiceImpl) Remove(ctx context.Context, organizationID, accountID string) (*model.ResponseScheme, error) {
 
+	// Start tracing span
+	tracer := otel.Tracer("github.com/ctreminiom/go-atlassian/v2/admin")
+	ctx, span := tracer.Start(ctx, "admin.organization.directory.remove")
+	defer span.End()
+
 	if organizationID == "" {
+		span.SetStatus(codes.Error, model.ErrNoAdminOrganization.Error())
+		span.RecordError(model.ErrNoAdminOrganization)
 		return nil, model.ErrNoAdminOrganization
 	}
 
 	if accountID == "" {
+		span.SetStatus(codes.Error, model.ErrNoAdminAccountID.Error())
+		span.RecordError(model.ErrNoAdminAccountID)
 		return nil, model.ErrNoAdminAccountID
 	}
 
 	endpoint := fmt.Sprintf("admin/v1/orgs/%v/directory/users/%v", organizationID, accountID)
 
+	// Set span attributes for the HTTP request
+	span.SetAttributes(
+		attribute.String("http.method", http.MethodDelete),
+		attribute.String("http.url", endpoint),
+		attribute.String("component", "go-atlassian"),
+		attribute.String("module", "admin"),
+		attribute.String("operation", "organization.directory.remove"),
+	)
+
 	req, err := i.c.NewRequest(ctx, http.MethodDelete, endpoint, "", nil)
 	if err != nil {
+		span.SetStatus(codes.Error, err.Error())
+		span.RecordError(err)
 		return nil, err
 	}
 
-	return i.c.Call(req, nil)
+	res, err := i.c.Call(req, nil)
+	if err != nil {
+		span.SetStatus(codes.Error, err.Error())
+		span.RecordError(err)
+		return res, err
+	}
+
+	// Set response attributes
+	if res != nil {
+		span.SetAttributes(attribute.Int("http.status_code", res.Code))
+		if res.Code >= 400 {
+			span.SetStatus(codes.Error, http.StatusText(res.Code))
+		} else {
+			span.SetStatus(codes.Ok, "")
+		}
+	}
+
+	return res, nil
 }
 
 func (i *internalOrganizationDirectoryServiceImpl) Suspend(ctx context.Context, organizationID, accountID string) (*model.GenericActionSuccessScheme, *model.ResponseScheme, error) {
